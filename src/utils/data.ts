@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Dados do portfólio
  * Contém todas as informações estáticas do portfólio
  */
@@ -41,6 +41,17 @@ export const projects: Project[] = [
     liveUrl: 'https://ticketgenerator.av1-fullstack-frontend.me/',
     image: '/src/assets/images/ticket-generator.jpg',
     completionDate: '31 de Agosto de 2025',
+    version: '1.0.0'
+  },
+  {
+    id: 'alpha-clean',
+    title: 'Alpha Clean',
+    description: 'Aplicação web do projeto Alpha Clean.',
+    technologies: ['Next.js', 'TypeScript', 'TailwindCSS'],
+    repository: 'https://github.com/TTG-Alpha-Clean',
+    liveUrl: 'https://alpha-clean-pearl.vercel.app',
+    image: '/src/assets/images/alpha-clean.jpg',
+    completionDate: '-',
     version: '1.0.0'
   }
 ];
@@ -105,7 +116,7 @@ export const education: Education[] = [
     endYear: 2027,
     additionalCourses: [
       'Infinity School',
-      'Voluntário na CIMATEC JR'
+      'CIMATEC JR - Atuação em tecnologia e educação'
     ]
   }
 ];

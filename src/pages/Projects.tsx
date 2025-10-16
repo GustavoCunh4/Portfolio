@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Página de Projetos
  * Galeria interativa dos projetos do portfólio
  */
@@ -26,14 +26,14 @@ const Projects: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-gray-100 py-12">
+    <div className="min-h-screen bg-gray-50 dark:bg-transparent py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12 animate-fade-in-up">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
             💼 Meus Projetos
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto">
             Uma coleção dos projetos que desenvolvi, demonstrando minhas habilidades 
             e paixão por criar soluções inovadoras.
           </p>
@@ -44,7 +44,7 @@ const Projects: React.FC = () => {
           {projects.map((project, index) => (
             <div
               key={project.id}
-              className="bg-white/10 backdrop-blur-lg rounded-2xl shadow-2xl border border-white/10 p-6 animate-fade-in-up hover:scale-105 hover:shadow-2xl transition-all duration-300"
+              className="bg-white dark:bg-white/10 backdrop-blur-lg rounded-2xl shadow-2xl border border-white/10 p-6 animate-fade-in-up hover:scale-105 hover:shadow-2xl transition-all duration-300"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               {/* Imagem do projeto */}
@@ -52,29 +52,29 @@ const Projects: React.FC = () => {
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-48 object-cover rounded-lg shadow-md border-4 border-[#ff6f61]"
+                  className="w-full h-48 object-cover rounded-lg shadow-md border-4 border-primary-600"
                   onError={(e) => {
                     // Fallback para caso a imagem não carregue
                     const target = e.target as HTMLImageElement;
                     target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjE5MiIgdmlld0JveD0iMCAwIDQwMCAxOTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMTkyIiByeD0iOCIgZmlsbD0iI2YzZjRmNiIvPgo8c3ZnIHg9IjE3NiIgeT0iNzIiIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiM5Y2EzYWYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj4KPHBhdGggZD0iTTEwIDRIMThWMTJIMTBWNCIvPgo8cGF0aCBkPSJNMTAgMTJIMThWMjBIMTBWMTIiLz4KPC9zdmc+Cjwvc3ZnPgo=';
                   }}
                 />
-                <div className="absolute top-4 right-4 bg-gradient-to-r from-[#ff6f61] to-[#23234a] text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">
+                <div className="absolute top-4 right-4 bg-gradient-to-r from-primary-600 to-primary-800 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">
                   v{project.version}
                 </div>
               </div>
 
               {/* Informações do projeto */}
               <div className="space-y-4">
-                <h3 className="text-2xl font-bold text-white drop-shadow-lg">{project.title}</h3>
-                <p className="text-gray-200 leading-relaxed">{project.description}</p>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white drop-shadow-lg">{project.title}</h3>
+                <p className="text-gray-700 dark:text-gray-300 leading-relaxed">{project.description}</p>
 
                 {/* Tecnologias */}
                 <div className="flex flex-wrap gap-2">
                   {project.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="px-3 py-1 bg-gradient-to-r from-[#23234a] to-[#ff6f61] text-white rounded-full text-sm font-bold shadow"
+                      className="px-3 py-1 bg-gradient-to-r from-primary-800 to-primary-600 text-white rounded-full text-sm font-bold shadow"
                     >
                       {tech}
                     </span>
@@ -91,21 +91,21 @@ const Projects: React.FC = () => {
                 <div className="flex flex-col sm:flex-row gap-3 pt-4">
                   <button
                     onClick={() => openProject(project)}
-                    className="flex-1 flex items-center justify-center bg-gradient-to-r from-[#ff6f61] to-[#23234a] hover:from-[#ff8c7a] hover:to-[#23234a] text-white font-bold py-2 px-4 rounded-full shadow-lg hover:scale-105 transition-all duration-300"
+                    className="flex-1 flex items-center justify-center bg-gradient-to-r from-primary-600 to-primary-800 hover:from-primary-500 hover:to-primary-800 text-white font-bold py-2 px-4 rounded-full shadow-lg hover:scale-105 transition-all duration-300"
                   >
                     <span className="mr-2">👁️</span>
                     Visualizar
                   </button>
                   <button
                     onClick={() => openInNewTab(project.liveUrl)}
-                    className="flex-1 flex items-center justify-center bg-gradient-to-r from-[#23234a] to-[#ff6f61] hover:from-[#23234a] hover:to-[#ff8c7a] text-white font-bold py-2 px-4 rounded-full shadow-lg hover:scale-105 transition-all duration-300"
+                    className="flex-1 flex items-center justify-center bg-gradient-to-r from-primary-800 to-primary-600 hover:from-primary-800 hover:to-primary-500 text-white font-bold py-2 px-4 rounded-full shadow-lg hover:scale-105 transition-all duration-300"
                   >
                     <span className="mr-2">🌐</span>
                     Acessar
                   </button>
                   <button
                     onClick={() => openInNewTab(project.repository)}
-                    className="flex-1 flex items-center justify-center bg-gradient-to-r from-[#23234a] to-[#ff6f61] hover:from-[#23234a] hover:to-[#ff8c7a] text-white font-bold py-2 px-4 rounded-full shadow-lg hover:scale-105 transition-all duration-300"
+                    className="flex-1 flex items-center justify-center bg-gradient-to-r from-primary-800 to-primary-600 hover:from-primary-800 hover:to-primary-500 text-white font-bold py-2 px-4 rounded-full shadow-lg hover:scale-105 transition-all duration-300"
                   >
                     <span className="mr-2">🐙</span>
                     Código

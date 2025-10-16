@@ -1,4 +1,4 @@
-/**
+﻿/**
  * App Principal
  * Configuração do React Router V7 e estrutura principal da aplicação
  */
@@ -37,3 +37,4 @@ const App: React.FC = () => {
 };
 
 export default App;
+

@@ -4,13 +4,17 @@
  */
 
 import type { Project, Skill, Experience, Education, PersonalInfo, Language } from '../types';
+import avatarImage from '../assets/images/avatar.jpg';
+import ageCalculatorImage from '../assets/images/age-calculator.jpg';
+import ticketGeneratorImage from '../assets/images/ticket-generator.jpg';
+import alphaCleanImage from '../assets/images/alpha-clean.jpg';
 
 // Informações pessoais
 export const personalInfo: PersonalInfo = {
   name: 'Luiz Gustavo Santos Cunha',
   title: 'Desenvolvedor Full Stack',
   summary: 'Fascinado por Resolução de Problemas, Criatividade para Soluções, Conexão com Pessoas.',
-  avatar: '/src/assets/images/avatar.jpg',
+  avatar: avatarImage,
   contact: {
     email: 'luiz.gustavo.cunha2003@gmail.com',
     phone: '(71) 9 9115-6488',
@@ -28,7 +32,7 @@ export const projects: Project[] = [
     technologies: ['React', 'TypeScript', 'TailwindCSS'],
     repository: 'https://github.com/GustavoCunh4/age-calculator-app',
     liveUrl: 'https://agecalculator.av1-fullstack-frontend.me/',
-    image: '/src/assets/images/age-calculator.jpg',
+    image: ageCalculatorImage,
     completionDate: '14 de Setembro de 2025',
     version: '1.0.2'
   },
@@ -39,7 +43,7 @@ export const projects: Project[] = [
     technologies: ['HTML', 'CSS', 'JavaScript'],
     repository: 'https://github.com/GustavoCunh4/AV1-FullStack-Frontend',
     liveUrl: 'https://ticketgenerator.av1-fullstack-frontend.me/',
-    image: '/src/assets/images/ticket-generator.jpg',
+    image: ticketGeneratorImage,
     completionDate: '31 de Agosto de 2025',
     version: '1.0.0'
   },
@@ -50,7 +54,7 @@ export const projects: Project[] = [
     technologies: ['Next.js', 'TypeScript', 'TailwindCSS'],
     repository: 'https://github.com/TTG-Alpha-Clean',
     liveUrl: 'https://alpha-clean-pearl.vercel.app',
-    image: '/src/assets/images/alpha-clean.jpg',
+    image: alphaCleanImage,
     completionDate: '-',
     version: '1.0.0'
   }

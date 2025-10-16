@@ -73,15 +73,15 @@ const Home: React.FC = () => {
 
               <div className="space-y-6">
                 {/* Email */}
-                <div className="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                  <div className="w-12 h-12 bg-primary-100 dark:bg-white/10 rounded-full flex items-center justify-center">
-                    <span className="text-primary-700 dark:text-primary-700 text-xl">📧</span>
+                <div className="flex items-start sm:items-center gap-4 p-4 bg-white dark:bg-slate-900/60 border border-primary-500/20 rounded-xl shadow-md transition-colors hover:bg-primary-50 dark:hover:bg-slate-800/80">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-100 text-primary-700 dark:bg-primary-500/20 dark:text-primary-200">
+                    <span className="text-xl">dY"</span>
                   </div>
-                  <div>
-                    <p className="text-sm text-gray-700 dark:text-gray-900">Email</p>
+                  <div className="flex-1">
+                    <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-300">Email</p>
                     <a
                       href={`mailto:${personalInfo.contact.email}`}
-                      className="text-primary-700 dark:text-primary-700 hover:text-primary-800 dark:hover:text-primary-500 font-semibold"
+                      className="text-base font-semibold text-primary-700 dark:text-primary-300 hover:text-primary-800 dark:hover:text-primary-200 transition-colors break-all"
                     >
                       {personalInfo.contact.email}
                     </a>
@@ -89,15 +89,15 @@ const Home: React.FC = () => {
                 </div>
 
                 {/* Telefone */}
-                <div className="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                  <div className="w-12 h-12 bg-primary-100 dark:bg-white/10 rounded-full flex items-center justify-center">
-                    <span className="text-primary-700 dark:text-primary-700 text-xl">📱</span>
+                <div className="flex items-start sm:items-center gap-4 p-4 bg-white dark:bg-slate-900/60 border border-primary-500/20 rounded-xl shadow-md transition-colors hover:bg-primary-50 dark:hover:bg-slate-800/80">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-100 text-primary-700 dark:bg-primary-500/20 dark:text-primary-200">
+                    <span className="text-xl">dY"?</span>
                   </div>
-                  <div>
-                    <p className="text-sm text-gray-700 dark:text-gray-900">Telefone</p>
+                  <div className="flex-1">
+                    <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-300">Telefone</p>
                     <a
                       href={`tel:${personalInfo.contact.phone}`}
-                      className="text-primary-700 dark:text-primary-700 hover:text-primary-800 dark:hover:text-primary-500 font-semibold"
+                      className="text-base font-semibold text-primary-700 dark:text-primary-300 hover:text-primary-800 dark:hover:text-primary-200 transition-colors"
                     >
                       {personalInfo.contact.phone}
                     </a>
@@ -105,17 +105,17 @@ const Home: React.FC = () => {
                 </div>
 
                 {/* LinkedIn */}
-                <div className="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                  <div className="w-12 h-12 bg-primary-100 dark:bg-white/10 rounded-full flex items-center justify-center">
-                    <span className="text-primary-700 dark:text-primary-700 text-xl">💼</span>
+                <div className="flex items-start sm:items-center gap-4 p-4 bg-white dark:bg-slate-900/60 border border-primary-500/20 rounded-xl shadow-md transition-colors hover:bg-primary-50 dark:hover:bg-slate-800/80">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-100 text-primary-700 dark:bg-primary-500/20 dark:text-primary-200">
+                    <span className="text-xl">dY'?</span>
                   </div>
-                  <div>
-                    <p className="text-sm text-gray-700 dark:text-gray-900">LinkedIn</p>
+                  <div className="flex-1">
+                    <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-300">LinkedIn</p>
                     <a
                       href={personalInfo.contact.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-primary-700 dark:text-primary-700 hover:text-primary-800 dark:hover:text-primary-500 font-semibold"
+                      className="text-base font-semibold text-primary-700 dark:text-primary-300 hover:text-primary-800 dark:hover:text-primary-200 transition-colors"
                     >
                       Ver Perfil
                     </a>
@@ -123,24 +123,23 @@ const Home: React.FC = () => {
                 </div>
 
                 {/* GitHub */}
-                <div className="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                  <div className="w-12 h-12 bg-primary-100 dark:bg-white/10 rounded-full flex items-center justify-center">
-                    <span className="text-primary-700 dark:text-primary-700 text-xl">🧑‍💻</span>
+                <div className="flex items-start sm:items-center gap-4 p-4 bg-white dark:bg-slate-900/60 border border-primary-500/20 rounded-xl shadow-md transition-colors hover:bg-primary-50 dark:hover:bg-slate-800/80">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-100 text-primary-700 dark:bg-primary-500/20 dark:text-primary-200">
+                    <span className="text-xl">dY`???dY'?</span>
                   </div>
-                  <div>
-                    <p className="text-sm text-gray-700 dark:text-gray-900">GitHub</p>
+                  <div className="flex-1">
+                    <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-300">GitHub</p>
                     <a
                       href={personalInfo.contact.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-primary-700 dark:text-primary-700 hover:text-primary-800 dark:hover:text-primary-500 font-semibold"
+                      className="text-base font-semibold text-primary-700 dark:text-primary-300 hover:text-primary-800 dark:hover:text-primary-200 transition-colors"
                     >
-                      Ver Repositórios
+                      Ver RepositA3rios
                     </a>
                   </div>
                 </div>
               </div>
-
               {/* Links sociais */}
               <div className="mt-8 pt-6 border-t border-gray-200">
                 <div className="flex justify-center space-x-6">

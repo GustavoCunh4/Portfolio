@@ -106,28 +106,28 @@ const Experience: React.FC = () => {
 
         {/* Seção de Competências Desenvolvidas */}
         <div className="mt-12 animate-fade-in-up">
-          <div className="card p-8">
+          <div className="card p-8 bg-white/90 dark:bg-slate-900/70 border border-white/10 rounded-2xl shadow-xl backdrop-blur">
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">Competências Desenvolvidas</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="text-center p-4 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-white/5 dark:to-white/10 rounded-lg">
-                <div className="text-3xl mb-3">💻</div>
+              <div className="text-center p-5 bg-white/90 dark:bg-slate-900/70 border border-primary-500/20 rounded-2xl shadow-md hover:shadow-lg transition-colors">
+                <div className="text-3xl mb-3 text-primary-700 dark:text-primary-300">💻</div>
                 <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Desenvolvimento</h3>
-                <p className="text-sm text-gray-700 dark:text-gray-200">Participação ativa no desenvolvimento de códigos</p>
+                <p className="text-sm text-gray-700 dark:text-gray-300">Participação ativa no desenvolvimento de códigos</p>
               </div>
-              <div className="text-center p-4 bg-gradient-to-br from-green-50 to-green-100 dark:from-white/5 dark:to-white/10 rounded-lg">
-                <div className="text-3xl mb-3">🔎</div>
+              <div className="text-center p-5 bg-white/90 dark:bg-slate-900/70 border border-primary-500/20 rounded-2xl shadow-md hover:shadow-lg transition-colors">
+                <div className="text-3xl mb-3 text-primary-700 dark:text-primary-300">🔎</div>
                 <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Pesquisa</h3>
-                <p className="text-sm text-gray-700 dark:text-gray-200">Realização de pesquisas técnicas e documentação</p>
+                <p className="text-sm text-gray-700 dark:text-gray-300">Realização de pesquisas técnicas e documentação</p>
               </div>
-              <div className="text-center p-4 bg-gradient-to-br from-purple-50 to-purple-100 dark:from-white/5 dark:to-white/10 rounded-lg">
-                <div className="text-3xl mb-3">📝</div>
+              <div className="text-center p-5 bg-white/90 dark:bg-slate-900/70 border border-primary-500/20 rounded-2xl shadow-md hover:shadow-lg transition-colors">
+                <div className="text-3xl mb-3 text-primary-700 dark:text-primary-300">📝</div>
                 <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Documentação</h3>
-                <p className="text-sm text-gray-700 dark:text-gray-200">Criação e manutenção de documentação de projetos</p>
+                <p className="text-sm text-gray-700 dark:text-gray-300">Criação e manutenção de documentação de projetos</p>
               </div>
-              <div className="text-center p-4 bg-gradient-to-br from-indigo-50 to-indigo-100 dark:from-white/5 dark:to-white/10 rounded-lg">
-                <div className="text-3xl mb-3">🤝</div>
+              <div className="text-center p-5 bg-white/90 dark:bg-slate-900/70 border border-primary-500/20 rounded-2xl shadow-md hover:shadow-lg transition-colors">
+                <div className="text-3xl mb-3 text-primary-700 dark:text-primary-300">🤝</div>
                 <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Colaboração</h3>
-                <p className="text-sm text-gray-700 dark:text-gray-200">Trabalho em equipe e suporte aos projetos</p>
+                <p className="text-sm text-gray-700 dark:text-gray-300">Trabalho em equipe e suporte aos projetos</p>
               </div>
             </div>
           </div>

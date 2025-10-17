@@ -101,7 +101,7 @@ const Home: React.FC = () => {
             {/* Botões de ação */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <a
-                href="/projects"
+                href="/Portfolio/projects"
                 className="inline-flex items-center justify-center px-6 py-3 text-lg bg-gradient-to-r from-primary-600 to-primary-800 hover:from-[#7e22ce] hover:to-[#23234a] text-white font-bold rounded-full shadow-lg hover:scale-105 transition-all duration-300"
               >
                 <span className="mr-2">💼</span>

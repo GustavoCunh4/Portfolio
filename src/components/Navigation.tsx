@@ -46,7 +46,7 @@ const Navigation: React.FC = () => {
             <span>Luiz Gustavo</span>
           </Link>
 
-          {/* NavegaÃ§Ã£o desktop */}
+          {/* Navegação desktop */}
           <div className="hidden md:flex items-center space-x-3">
             {navigationItems.map((item) => (
               <Link
@@ -76,7 +76,7 @@ const Navigation: React.FC = () => {
             </button>
           </div>
 
-          {/* BotÃ£o mobile */}
+          {/* Botão mobile */}
           <div className="md:hidden flex items-center gap-2">
             <button
               onClick={toggleTheme}
@@ -110,7 +110,7 @@ const Navigation: React.FC = () => {
           </div>
         </div>
 
-        {/* NavegaÃ§Ã£o mobile */}
+        {/* Navegação mobile */}
         <div className={`md:hidden ${isMobileMenuOpen ? 'block' : 'hidden'}`}>
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white/90 backdrop-blur dark:bg-gradient-to-r dark:from-[#23234a] dark:via-[#1a1a2e] dark:to-[#181824] border-t border-secondary-200 dark:border-white/10 rounded-b-lg">
             {navigationItems.map((item) => (

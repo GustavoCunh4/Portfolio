@@ -16,7 +16,7 @@ export const personalInfo: PersonalInfo = {
   summary: 'Fascinado por Resolução de Problemas, Criatividade para Soluções, Conexão com Pessoas.',
   avatar: avatarImage,
   contact: {
-    email: 'luiz.gustavo.cunha2003@gmail.com',
+    email: 'luizgustavocunha.dev@gmail.com',
     phone: '(71) 9 9115-6488',
     linkedin: 'https://www.linkedin.com/in/luiz-gustavo-santos-cunha-854988256/',
     github: 'https://github.com/GustavoCunh4'

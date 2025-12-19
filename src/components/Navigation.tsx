@@ -1,129 +1,148 @@
 /**
  * Componente de Navegação
- * Barra de navegação responsiva com menu mobile e alternância de tema
+ * Barra com estética futurista, vidro fosco e controle de tema
  */
 
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { navigationItems } from '../utils/data';
+import logoImage from '../assets/images/logo-gc.png';
 
 const Navigation: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isDark, setIsDark] = useState(true);
   const location = useLocation();
 
   useEffect(() => {
-    const hasDark = document.documentElement.classList.contains('dark');
-    setIsDark(hasDark);
+    document.documentElement.classList.add('dark');
   }, []);
+
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [location.pathname]);
 
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
   const isActive = (path: string) => location.pathname === path;
 
-  const toggleTheme = () => {
-    const next = !isDark;
-    setIsDark(next);
-    if (next) {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-    }
+  const iconMap: Record<string, React.ReactNode> = {
+    '/': (
+      <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6}>
+        <path d="M4.5 11.5l7.5-6 7.5 6" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M5.5 10.75V18a.75.75 0 00.75.75H11v-4.5h2v4.5h4.75a.75.75 0 00.75-.75v-7.25" strokeLinecap="round" />
+      </svg>
+    ),
+    '/projects': (
+      <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6}>
+        <rect x="3.5" y="4.5" width="17" height="6" rx="1.25" />
+        <rect x="3.5" y="13.5" width="17" height="6" rx="1.25" />
+        <path d="M9 7h6M9 16h6" strokeLinecap="round" />
+      </svg>
+    ),
+    '/skills': (
+      <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6}>
+        <circle cx="12" cy="12" r="8" />
+        <path d="M12 6v6l3 3" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    ),
+    '/experience': (
+      <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6}>
+        <rect x="5" y="7" width="14" height="12" rx="2" />
+        <path d="M9 7V5.5A1.5 1.5 0 0110.5 4h3A1.5 1.5 0 0115 5.5V7" />
+        <path d="M8 12h8" strokeLinecap="round" />
+      </svg>
+    ),
+    '/education': (
+      <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6}>
+        <path d="M3.5 9L12 4l8.5 5-8.5 5L3.5 9z" />
+        <path d="M7 11v4c0 1.1 2.24 2 5 2s5-.9 5-2v-4" />
+      </svg>
+    ),
   };
 
   return (
-    <nav className="sticky top-0 z-50 border-b bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/60 text-gray-800 border-secondary-200 dark:bg-gradient-to-r dark:from-[#23234a] dark:via-[#1a1a2e] dark:to-[#181824] dark:text-white dark:border-white/10 shadow-xl">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <Link
-            to="/"
-            className="flex items-center space-x-2 text-xl font-bold text-gray-900 dark:text-white drop-shadow-lg"
-          >
-            <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 3L4 14h6l-1 7 9-11h-6l1-7z" /></svg>
-            <span>Luiz Gustavo</span>
-          </Link>
+    <nav className="sticky top-0 z-50 px-4">
+      <div className="max-w-7xl mx-auto">
+        <div className="relative mt-4 overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-[0_15px_70px_rgba(0,0,0,0.45)]">
+          <div className="absolute inset-0 bg-gradient-to-r from-white/10 via-white/5 to-white/10 opacity-40" />
+          <div className="relative flex items-center justify-between px-4 py-3 md:px-6">
+            {/* Logo */}
+            <Link to="/" className="flex items-center gap-3 text-slate-100 hover:text-white">
+              <div className="relative h-11 w-11 overflow-hidden rounded-2xl border border-white/15 bg-slate-950/80 shadow-inner">
+                <img
+                  src={logoImage}
+                  alt="Logo Gustavo Cunha"
+                  className="h-full w-full object-contain p-1"
+                />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-xs uppercase tracking-[0.15em] text-slate-300">Portfólio</span>
+                <span className="text-lg font-semibold">Gustavo Cunha</span>
+              </div>
+            </Link>
 
-          {/* Navegação desktop */}
-          <div className="hidden md:flex items-center space-x-3">
-            {navigationItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                className={`flex items-center space-x-1 px-3 py-2 rounded-md text-lg font-semibold transition-all duration-300 ${isActive(item.path) ? 'bg-primary-600 text-white shadow-lg scale-105' : 'text-gray-700 dark:text-white/80 hover:text-primary-700 dark:hover:text-primary-300 hover:scale-105 hover:shadow-md'}`}
+            {/* Navegação desktop */}
+            <div className="hidden md:flex items-center gap-1">
+              {navigationItems.map((item) => {
+                const active = isActive(item.path);
+                return (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    className={`relative overflow-hidden rounded-full px-4 py-2 text-sm font-semibold transition-all ${
+                      active
+                        ? 'text-white shadow-lg shadow-primary-900/30'
+                        : 'text-slate-300 hover:text-white hover:bg-white/5'
+                    }`}
+                  >
+                    {active && <span className="absolute inset-0 rounded-full bg-gradient-to-r from-white/10 to-white/5 backdrop-blur-xl border border-white/15" />}
+                    <span className="relative flex items-center gap-2">
+                      {iconMap[item.path] || <span className="h-4 w-4 rounded-full bg-white/70" />}
+                      <span>{item.label}</span>
+                    </span>
+                  </Link>
+                );
+              })}
+            </div>
+
+            {/* Botão mobile */}
+            <div className="md:hidden flex items-center gap-2">
+              <button
+                onClick={toggleMobileMenu}
+                className="inline-flex items-center justify-center h-10 w-10 rounded-full border border-white/10 bg-white/5 text-slate-200 hover:text-white focus:outline-none focus:ring-2 focus:ring-accent-400/70"
+                aria-expanded={isMobileMenuOpen}
               >
-                {item.icon ? <span>{item.icon}</span> : null}
-                <span>{item.label}</span>
-              </Link>
-            ))}
-            <button
-              onClick={toggleTheme}
-              aria-label="Alternar tema"
-              className="ml-2 inline-flex items-center justify-center w-10 h-10 rounded-md border border-secondary-300 dark:border-white/10 text-secondary-700 dark:text-white/80 hover:text-primary-700 dark:hover:text-primary-300 hover:border-primary-300 dark:hover:border-primary-500 transition-colors"
-            >
-              {isDark ? (
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-                  <path d="M12 18a6 6 0 100-12 6 6 0 000 12z" />
-                  <path fillRule="evenodd" d="M12 2.25a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V3A.75.75 0 0112 2.25zm0 15.75a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25a.75.75 0 01.75-.75zM4.72 4.72a.75.75 0 011.06 0l1.06 1.06a.75.75 0 11-1.06 1.06L4.72 5.78a.75.75 0 010-1.06zm12.44 12.44a.75.75 0 011.06 0l1.06 1.06a.75.75 0 11-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zM2.25 12a.75.75 0 01.75-.75h1.5a.75.75 0 010 1.5H3a.75.75 0 01-.75-.75zm15.75 0a.75.75 0 01.75-.75h2.25a.75.75 0 010 1.5H18.75a.75.75 0 01-.75-.75zM4.72 19.28a.75.75 0 010-1.06l1.06-1.06a.75.75 0 111.06 1.06L5.78 19.28a.75.75 0 01-1.06 0zm12.44-12.44a.75.75 0 010-1.06l1.06-1.06a.75.75 0 111.06 1.06l-1.06 1.06a.75.75 0 01-1.06 0z" clipRule="evenodd" />
+                <span className="sr-only">Abrir menu principal</span>
+                <svg className={`${isMobileMenuOpen ? 'hidden' : 'block'} h-6 w-6`} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
-              ) : (
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-                  <path d="M21.752 15.002A9.718 9.718 0 0112 21.75 9.75 9.75 0 1118.998 2.248a.75.75 0 01.073 1.274 7.5 7.5 0 002.407 11.48.75.75 0 01-.726 0z" />
+                <svg className={`${isMobileMenuOpen ? 'block' : 'hidden'} h-6 w-6`} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
-              )}
-            </button>
+              </button>
+            </div>
           </div>
 
-          {/* Botão mobile */}
-          <div className="md:hidden flex items-center gap-2">
-            <button
-              onClick={toggleTheme}
-              aria-label="Alternar tema"
-              className="inline-flex items-center justify-center p-2 rounded-md text-secondary-700 hover:text-primary-700 dark:text-white/80 dark:hover:text-primary-300"
-            >
-              {isDark ? (
-                <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M12 18a6 6 0 100-12 6 6 0 000 12z" />
-                  <path fillRule="evenodd" d="M12 2.25a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V3A.75.75 0 0112 2.25zm0 15.75a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25a.75.75 0 01.75-.75zM4.72 4.72a.75.75 0 011.06 0l1.06 1.06a.75.75 0 11-1.06 1.06L4.72 5.78a.75.75 0 010-1.06zm12.44 12.44a.75.75 0 011.06 0l1.06 1.06a.75.75 0 11-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zM2.25 12a.75.75 0 01.75-.75h1.5a.75.75 0 010 1.5H3a.75.75 0 01-.75-.75zm15.75 0a.75.75 0 01.75-.75h2.25a.75.75 0 010 1.5H18.75a.75.75 0 01-.75-.75zM4.72 19.28a.75.75 0 010-1.06l1.06-1.06a.75.75 0 111.06 1.06L5.78 19.28a.75.75 0 01-1.06 0zm12.44-12.44a.75.75 0 010-1.06l1.06-1.06a.75.75 0 111.06 1.06l-1.06 1.06a.75.75 0 01-1.06 0z" clipRule="evenodd" />
-                </svg>
-              ) : (
-                <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M21.752 15.002A9.718 9.718 0 0112 21.75 9.75 9.75 0 1118.998 2.248a.75.75 0 01.073 1.274 7.5 7.5 0 002.407 11.48.75.75 0 01-.726 0z" />
-                </svg>
-              )}
-            </button>
-            <button
-              onClick={toggleMobileMenu}
-              className="inline-flex items-center justify-center p-2 rounded-md text-secondary-700 hover:text-primary-700 dark:text-white/80 dark:hover:text-primary-300 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500"
-              aria-expanded="false"
-            >
-              <span className="sr-only">Abrir menu principal</span>
-              <svg className={`${isMobileMenuOpen ? 'hidden' : 'block'} h-6 w-6`} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-              <svg className={`${isMobileMenuOpen ? 'block' : 'hidden'} h-6 w-6`} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-          </div>
-        </div>
-
-        {/* Navegação mobile */}
-        <div className={`md:hidden ${isMobileMenuOpen ? 'block' : 'hidden'}`}>
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white/90 backdrop-blur dark:bg-gradient-to-r dark:from-[#23234a] dark:via-[#1a1a2e] dark:to-[#181824] border-t border-secondary-200 dark:border-white/10 rounded-b-lg">
-            {navigationItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className={`flex items-center space-x-2 px-3 py-2 rounded-md text-base font-medium transition-all duration-300 ${isActive(item.path) ? 'bg-primary-600 text-white shadow-lg scale-105' : 'text-gray-700 dark:text-white/80 hover:text-primary-700 dark:hover:text-primary-300 hover:scale-105 hover:shadow-md'}`}
-              >
-                {item.icon ? <span>{item.icon}</span> : null}
-                <span>{item.label}</span>
-              </Link>
-            ))}
+          {/* Navegação mobile */}
+          <div className={`md:hidden transition-all duration-300 ${isMobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+            <div className="px-4 pb-4 space-y-2 bg-slate-950/70 backdrop-blur-lg border-t border-white/10">
+              {navigationItems.map((item) => {
+                const active = isActive(item.path);
+                return (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    className={`flex items-center gap-3 rounded-xl px-4 py-3 text-base font-semibold ${
+                      active
+                        ? 'bg-white/10 text-white'
+                        : 'text-slate-200 hover:text-white hover:bg-white/5'
+                    }`}
+                  >
+                    {iconMap[item.path] || <span className="h-4 w-4 rounded-full bg-white/70" />}
+                    <span>{item.label}</span>
+                  </Link>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>

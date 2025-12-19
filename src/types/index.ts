@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Tipos TypeScript para o portfólio
  * Define interfaces e tipos para projetos, habilidades, experiência e educação
  */

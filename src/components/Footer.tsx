@@ -1,66 +1,63 @@
-﻿/**
+/**
  * Componente Footer
- * Rodapé do site com informações de contato e links sociais
+ * Rodapé em vidro com CTA e links rápidos
  */
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { personalInfo } from '../utils/data';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-100 text-gray-700 dark:bg-gradient-to-br from-[#181824] via-[#23234a] to-[#1a1a2e] dark:text-white border-t border-secondary-200 dark:border-white/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Informações pessoais */}
-          <div className="space-y-4 bg-white dark:bg-white/5 backdrop-blur-md rounded-xl p-6 shadow-lg border border-secondary-200 dark:border-white/10">
-            <h3 className="text-xl font-bold text-primary-600 dark:text-primary-400 drop-shadow-lg">Luiz Gustavo Santos Cunha</h3>
-            <p className="text-gray-700 dark:text-gray-200">
-              Desenvolvedor Full Stack apaixonado por resolver problemas e criar soluções inovadoras.
+    <footer className="relative mt-12 border-t border-white/10 bg-slate-950/80 backdrop-blur">
+      <div className="absolute inset-0 bg-gradient-to-r from-primary-900/30 via-accent-400/10 to-primary-800/30 pointer-events-none" />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-8">
+          <div className="glass-panel rounded-3xl border border-white/10 p-6">
+            <p className="text-xs uppercase tracking-[0.25em] text-slate-400">Pronto para acelerar?</p>
+            <h3 className="text-3xl font-bold text-white mt-2">Vamos criar algo que pareça inevitável.</h3>
+            <p className="text-slate-300 mt-3 max-w-2xl">
+              Conversas rápidas, protótipos ainda mais rápidos. Conte comigo para liderar o front e pensar o produto de ponta a ponta.
             </p>
+            <div className="mt-4 flex flex-wrap gap-3">
+              <a href="mailto:luizgustavocunha.dev@gmail.com" className="btn-primary">
+                Escrever e-mail
+              </a>
+              <a href={personalInfo.contact.linkedin} target="_blank" rel="noopener noreferrer" className="btn-secondary">
+                Conectar no LinkedIn
+              </a>
+            </div>
           </div>
 
-          {/* Links rápidos */}
-          <div className="space-y-4 bg-white dark:bg-white/5 backdrop-blur-md rounded-xl p-6 shadow-lg border border-secondary-200 dark:border-white/10">
-            <h4 className="text-lg font-semibold text-primary-600 dark:text-primary-400">Navegação</h4>
-            <ul className="space-y-2">
-              <li>
-                <a href="/" className="text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:text-primary-400 transition-colors">Home</a>
-              </li>
-              <li>
-                <a href="/projects" className="text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:text-primary-400 transition-colors">Projetos</a>
-              </li>
-              <li>
-                <a href="/skills" className="text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:text-primary-400 transition-colors">Habilidades</a>
-              </li>
-              <li>
-                <a href="/experience" className="text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:text-primary-400 transition-colors">Experiência</a>
-              </li>
-              <li>
-                <a href="/education" className="text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:text-primary-400 transition-colors">Educação</a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Links sociais */}
-          <div className="space-y-4 bg-white dark:bg-white/5 backdrop-blur-md rounded-xl p-6 shadow-lg border border-secondary-200 dark:border-white/10">
-            <h4 className="text-lg font-semibold text-primary-600 dark:text-primary-400">Contato</h4>
-            <ul className="space-y-2">
-              <li>
-                <a href={`mailto:${personalInfo.contact.email}`} className="text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:text-primary-400 transition-colors">Email</a>
-              </li>
-              <li>
-                <a href={personalInfo.contact.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:text-primary-400 transition-colors">LinkedIn</a>
-              </li>
-              <li>
-                <a href={personalInfo.contact.github} target="_blank" rel="noopener noreferrer" className="text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:text-primary-400 transition-colors">GitHub</a>
-              </li>
-            </ul>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
+              <h4 className="text-lg font-semibold text-white">Navegação</h4>
+              <ul className="mt-3 space-y-2 text-slate-300">
+                <li><Link to="/" className="hover:text-white">Home</Link></li>
+                <li><Link to="/projects" className="hover:text-white">Projetos</Link></li>
+                <li><Link to="/skills" className="hover:text-white">Habilidades</Link></li>
+                <li><Link to="/experience" className="hover:text-white">Experiência</Link></li>
+                <li><Link to="/education" className="hover:text-white">Educação</Link></li>
+              </ul>
+            </div>
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-5 md:col-span-2 lg:col-span-2">
+              <h4 className="text-lg font-semibold text-white">Contato</h4>
+              <div className="mt-3 grid gap-2 text-slate-300">
+                <a href={`mailto:${personalInfo.contact.email}`} className="hover:text-white break-words block">{personalInfo.contact.email}</a>
+                <a href={`tel:${personalInfo.contact.phone}`} className="hover:text-white break-words block">{personalInfo.contact.phone}</a>
+                <a href={personalInfo.contact.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-white break-words block">LinkedIn</a>
+                <a href={personalInfo.contact.github} target="_blank" rel="noopener noreferrer" className="hover:text-white break-words block">GitHub</a>
+              </div>
+              <div className="mt-5 rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-slate-200 leading-relaxed">
+                {personalInfo.summary}
+              </div>
+            </div>
           </div>
         </div>
-        <div className="mt-12 text-center text-gray-400">
-          &copy; {currentYear} Luiz Gustavo Santos Cunha. Todos os direitos reservados.
+        <div className="mt-10 text-center text-slate-400 text-sm">
+          © {currentYear} {personalInfo.name}. Projetado para ser lembrado.
         </div>
       </div>
     </footer>
